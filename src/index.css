@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+
+header {
+  /* sets the background color of the header to a dark gray */
+  background-color: #404040;
+  /* sets the padding of the header to 1rem */
+  padding: 1rem;
+}
+
+header a{
+  /* sets the color of the text within the header to white */
+  color: #ffffff;
+  /* sets the font weight of the text within the header to bold */
+  font-weight: bold;
+  /* removes the underline from the links within the header */
+  text-decoration: none;
+}
+
+.products{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product{
+  border : 1px #404040 solid;
+  margin: 1rem;
+}
+
+.product img{
+  width:100%;
+  max-width: 250px;
+
+}
