@@ -11,17 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-
-
 header {
   /* sets the background color of the header to a dark gray */
   background-color: #404040;
   /* sets the padding of the header to 1rem */
   padding: 1rem;
+  height: 2rem;
 }
 
-header a{
+header a {
   /* sets the color of the text within the header to white */
   color: #ffffff;
   /* sets the font weight of the text within the header to bold */
@@ -29,20 +27,28 @@ header a{
   /* removes the underline from the links within the header */
   text-decoration: none;
 }
-
-.products{
+.products {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.product{
-  border : 1px #404040 solid;
+.single-product {
+  border: 1px #404040 solid;
   margin: 1rem;
 }
 
-.product img{
-  width:100%;
-  max-width: 250px;
+.products img {
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  max-height: 300px;
+}
 
+main {
+  padding: 1rem;
+}
+
+.product-desc {
+  padding: 1rem;
 }
