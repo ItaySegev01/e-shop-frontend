@@ -8,7 +8,7 @@ function App() {
   return (
   <BrowserRouter>
     <div className='App'>
-      <header className='App-header'>
+      <header className='App-header-logo'>
         <Link to="/">EShop</Link>
       </header>
       <main>
