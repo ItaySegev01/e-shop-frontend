@@ -6,7 +6,9 @@ const ProductPage = () => {
     const {token} = params;
     
   return (
-    <div>{token}</div>
+    <div>
+      <h1>{token}</h1>
+    </div>
   )
 }
 

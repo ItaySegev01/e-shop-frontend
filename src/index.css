@@ -11,22 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-header {
-  /* sets the background color of the header to a dark gray */
-  background-color: #404040;
-  /* sets the padding of the header to 1rem */
-  padding: 1rem;
-  height: 2rem;
-}
 
-header a {
-  /* sets the color of the text within the header to white */
-  color: #ffffff;
-  /* sets the font weight of the text within the header to bold */
-  font-weight: bold;
-  /* removes the underline from the links within the header */
-  text-decoration: none;
-}
 .products {
   display: flex;
   flex-wrap: wrap;
@@ -46,13 +31,48 @@ header a {
 }
 
 main {
-  padding: 1rem;
+  flex: 1;
 }
 
 .product-desc {
   padding: 1rem;
 }
 
-.App-header{
+.App-header {
   height: 70px;
+}
+
+.side-allpage {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.rating span {
+  color: #ffc000;
+}
+
+.btn-primary,
+.btn-outline-primary {
+  background-color: #f0c040;
+  color: #000000;
+  border-width: 0px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background-color: #d3a62c;
+}
+
+.product-card{
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+  box-shadow: none;
+  transform: scale(1);
+
+}
+
+.product-card:hover{
+  box-shadow: 10px 10px 10px #888888 ;
+  transform: scale(1.02);
 }
