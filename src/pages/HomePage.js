@@ -3,6 +3,9 @@ import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Product from '../Components/Product';
+import Loading from '../Components/Loading';
+import MessageBox from '../Components/MessageBox';
+import { Helmet } from 'react-helmet-async';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -38,17 +41,20 @@ function HomePage() {
 
   return (
     <div className="App">
-      <h1>Products :</h1>
+      <Helmet>
+        <title>EShop</title>
+      </Helmet>
+      <h1>Products</h1>
       <div className="products">
         {loading ? (
-          <p>loading ...</p>
+          <Loading/>
         ) : error ? (
-          <p>{error}</p>
+          <MessageBox variant='danger'>{error}</MessageBox>
         ) : (
           <Row>
             {products.map((product) => (
               <Col key={product.token} lg={3} md={4} sm={6} className="mb-3">
-                <Product product={product} />
+                <Product product = {product} />
               </Col>
             ))}
           </Row>

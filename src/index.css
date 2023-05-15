@@ -65,11 +65,10 @@ main {
   background-color: #d3a62c;
 }
 
-.product-card{
+.product-card {
   transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
   box-shadow: none;
   transform: scale(1);
-
 }
 
 .product-card:hover{
