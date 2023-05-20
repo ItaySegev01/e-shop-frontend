@@ -15,7 +15,7 @@ code {
 .products {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .single-product {
@@ -74,4 +74,9 @@ main {
 .product-card:hover{
   box-shadow: 10px 10px 10px #888888 ;
   transform: scale(1.02);
+}
+
+.image-thumbnail {
+  height: 70px;
+  
 }

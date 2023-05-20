@@ -9,6 +9,7 @@ import Nav from 'react-bootstrap/Nav';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useContext } from 'react';
 import {store} from './store'
+import CartPage from './pages/CartPage';
 
 function App() {
   const {state} = useContext(store);
@@ -38,6 +39,7 @@ function App() {
             <Routes>
               <Route path="/product/:token" element={<ProductPage />} />
               <Route path="/" element={<HomePage />} />
+              <Route path="/cart" element={<CartPage />} />
             </Routes>
           </Container>
         </main>
