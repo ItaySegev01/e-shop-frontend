@@ -10,6 +10,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { useContext } from 'react';
 import {store} from './store'
 import CartPage from './pages/CartPage';
+import SignInPage from './pages/SignInPage';
 
 function App() {
   const {state} = useContext(store);
@@ -34,12 +35,14 @@ function App() {
             </Nav>
           </Container>
         </Navbar>
+        {/* Header */}
         <main>
           <Container className='mt-3'>
             <Routes>
               <Route path="/product/:token" element={<ProductPage />} />
               <Route path="/" element={<HomePage />} />
-              <Route path="/cart" element={<CartPage />} />
+              <Route path="/cart" element={<CartPage />}/>
+              <Route path="/signin" element={<SignInPage/>}/>
             </Routes>
           </Container>
         </main>
@@ -47,6 +50,7 @@ function App() {
           <div className="text-center">All right's reserved @2023</div>
         </footer>
       </div>
+      {/* Footer */}
     </BrowserRouter>
   );
 }
