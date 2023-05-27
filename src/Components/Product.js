@@ -1,10 +1,4 @@
-import { Link } from 'react-router-dom';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import Rating from './Rating';
-import axios from 'axios';
-import { useContext } from 'react';
-import { store } from '../store';
+import {Link, Card, Button, Rating, axios, useContext, store} from '../Imports';
 
 function Product(props) {
   const { product } = props;
@@ -13,22 +7,22 @@ function Product(props) {
     cart: { cartItems },
   } = state;
 
-  const addToCartHandler = async (item) => {
+  const addToCartHandler = async (product) => {
     const existItem = cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/v1/products/${item._id}`);
+    const { data } = await axios.get(`/api/v1/products/${product._id}`);
     if (data.countInStock < quantity) {
       window.alert('Sorry the Product is Out Of Stock');
       return;
     }
     ctxDispatch({
       type: 'ADD_TO_CART',
-      payload: { ...item, quantity },
+      payload: { ...product, quantity },
     });
   };
 
   return (
-    <Card className="product-card h-100 d-flex align-items-stretch">
+    <Card className="product-card h-100">
       <Link to={`/product/${product.token}`}>
         <img
           className="card-img-top"
@@ -36,7 +30,7 @@ function Product(props) {
           alt={product.title}
         ></img>
       </Link>
-      <Card.Body >
+      <Card.Body className="card-body">
         <Link to={`/product/${product.token}`}>
           <Card.Title>{product.title}</Card.Title>
         </Link>

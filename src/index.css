@@ -71,17 +71,21 @@ main {
   transform: scale(1);
 }
 
-.product-card:hover{
-  box-shadow: 10px 10px 10px #888888 ;
+.product-card:hover {
+  box-shadow: 10px 10px 10px #888888;
   transform: scale(1.02);
 }
 
 .image-thumbnail {
   height: 70px;
-  
 }
 
-.small-container{
+.small-container {
   max-width: 600px;
-  
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

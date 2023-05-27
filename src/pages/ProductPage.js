@@ -1,40 +1,10 @@
-import React, { useContext } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useEffect, useReducer } from 'react';
-import axios from 'axios';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Rating from '../Components/Rating';
-import Card from 'react-bootstrap/Card';
-import Button from'react-bootstrap/Button';
-import Badge from 'react-bootstrap/Badge';
-import {Helmet} from 'react-helmet-async';
-import Loading from '../Components/Loading';
-import MessageBox from '../Components/MessageBox';
-import { getError } from '../Utils';
-import {store} from '../store'
-
-
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'GET_REQUEST':
-      return { ...state, loading: true };
-    case 'GET_SUCCESS':
-      return { ...state, product: action.payload, loading: false };
-    case 'GET_FAIL':
-      return { ...state, loading: false, error: action.payload };
-    default:
-      return state;
-  }
-};
+import { useParams,ListGroup,useEffect,useReducer,axios,Row,Col,Loading,MessageBox,getError,store,useContext,useNavigate,GET_REQUEST,GET_FAIL,GET_SUCCESS,productPageReducer,Title,Badge,Button,Rating,Card } from '../Imports';
 
 function ProductPage() {
   const navigate = useNavigate();
   const params = useParams();
   const { token } = params;
-  const [{ loading, error, product }, dispatch] = useReducer(reducer, {
+  const [{ loading, error, product }, dispatch] = useReducer(productPageReducer, {
     loading: true,
     error: '',
     product: [],
@@ -42,12 +12,12 @@ function ProductPage() {
 
   useEffect(() => {
     const getProduct = async () => {
-      dispatch({ type: 'GET_REQUEST' });
+      dispatch({ type: GET_REQUEST });
       try {
         const res = await axios.get(`/api/v1/products/token/${token}`);
-        dispatch({ type: 'GET_SUCCESS', payload: res.data });
+        dispatch({ type: GET_SUCCESS, payload: res.data });
       } catch (err) {
-        dispatch({ type: 'GET_FAIL', payload: getError(err) });
+        dispatch({ type: GET_FAIL, payload: getError(err) });
       }
     };
 
@@ -78,15 +48,13 @@ function ProductPage() {
       ) : (
         <Row>
           <Col md={6}>
-            <img src={product.image} alt={product.title} className="img-large" />
+            <img src={product.image} alt={product.title}  className="card-img-top card-image" />
           </Col>
           <Col md={3}>
             <ListGroup variant="flush">
               <ListGroup.Item>
-                 <Helmet>
-                  <title>{product.title}</title>
-                </Helmet>
-                <h1>{product.name}</h1>
+              <Title title={product.title} />
+                <h1>{product.title}</h1>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Rating

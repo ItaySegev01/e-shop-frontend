@@ -1,15 +1,4 @@
-import { useContext } from 'react';
-import { store } from '../store';
-import { Helmet } from 'react-helmet-async';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import MessageBox from '../Components/MessageBox';
-import { Link,useNavigate  } from 'react-router-dom';
-import  ListGroup  from 'react-bootstrap/ListGroup';
-import  Card from 'react-bootstrap/Card';
-import  Button from 'react-bootstrap/Button';
-import axios from 'axios';
-
+import {useContext, store,Row,Col,MessageBox,Link,useNavigate,ListGroup,Card,Button,axios,Title} from '../Imports'
 
 function CartPage() {
   const navigate = useNavigate();
@@ -43,9 +32,7 @@ function CartPage() {
 
   return (
     <div>
-      <Helmet>
-        <title>Shoping Cart</title>
-      </Helmet>
+      <Title title='Shoping Cart'/>
       <Row>
         <Col md={8}>
           {cartItems.length === 0 ? (
@@ -66,7 +53,6 @@ function CartPage() {
                         alt={item.title}
                         className="img-fluid rounded image-thumbnai"
                       ></img>
-                      {/* ---- */}
                       <Link to={`/product/${item.token}`}>{item.title}</Link>
                     </Col>
                     <Col md={3}>

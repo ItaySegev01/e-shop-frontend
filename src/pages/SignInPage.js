@@ -1,14 +1,4 @@
-import React from 'react';
-import { useEffect, useContext, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import { Helmet } from 'react-helmet-async';
-import axios from 'axios';
-import { store } from '../store';
-//import { toast } from 'react-toastify';
-import { getError } from '../Utils';
+import {React,useEffect, useContext, useState,Link, useLocation, useNavigate,Form,Button,Container,axios,store,toast,getError,Title } from '../Imports';
 
 export default function SignInPage() {
   const navigate = useNavigate();
@@ -22,6 +12,7 @@ export default function SignInPage() {
   const { state, dispatch: ctxDispatch } = useContext(store);
   const { userInfo } = state;
   const submitHandler = async (e) => {
+    console.log('got here');
     e.preventDefault();
     try {
       const { data } = await axios.post('/api/v1/users/signin', {
@@ -32,8 +23,7 @@ export default function SignInPage() {
       localStorage.setItem('userInfo', JSON.stringify(data));
       navigate(redirect || '/');
     } catch (err) {
-        alert(getError(err));
-      //toast.error(getError(err));
+        toast.error(getError(err));
     }
   };
   useEffect(() => {
@@ -44,11 +34,9 @@ export default function SignInPage() {
 
   return (
     <Container className="small-container">
-      <Helmet>
-        <title>Sign In</title>
-      </Helmet>
+      <Title title="Sign In" />
       <h1 className="my-3">Sign In</h1>
-      <Form onSubmit={submitHandler()}>
+      <Form onSubmit={(e) => submitHandler(e)}>
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -73,7 +61,7 @@ export default function SignInPage() {
           <Link to={`/signup?redirect=${redirect}`}>Create your account</Link>
         </div>
         <div className="mb-3">
-          Forget Password? <Link to={'/forget-password'}></Link>
+          Forget Password? <Link to={'/forgot-password'}></Link>
         </div>
       </Form>
     </Container>
