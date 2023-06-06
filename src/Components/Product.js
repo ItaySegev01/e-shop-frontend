@@ -1,4 +1,4 @@
-import {Link, Card, Button, Rating, axios, useContext, store} from '../Imports';
+import {Link, Card, Button, Rating, axios, useContext, store,ADD_TO_CART} from '../Imports';
 
 function Product(props) {
   const { product } = props;
@@ -16,19 +16,24 @@ function Product(props) {
       return;
     }
     ctxDispatch({
-      type: 'ADD_TO_CART',
+      type: ADD_TO_CART,
       payload: { ...product, quantity },
     });
   };
 
+  const handleDragStart = (event) => {
+    event.dataTransfer.setData('text/plain', product._id);
+  };
+
+
   return (
-    <Card className="product-card h-100">
+    <Card className="product-card" draggable='true' onDragStart={handleDragStart}>
       <Link to={`/product/${product.token}`}>
-        <img
-          className="card-img-top"
+        <Card.Img
+          className="card-image-page"
           src={product.image}
           alt={product.title}
-        ></img>
+        ></Card.Img>
       </Link>
       <Card.Body className="card-body">
         <Link to={`/product/${product.token}`}>
@@ -41,7 +46,7 @@ function Product(props) {
         <Card.Text>{product.price} $</Card.Text>
         {product.countInStock === 0 ? (
           <Button variant="light" dissabled = {true}>
-            Out Of Stock
+            Out of Stock
           </Button>
         ) : (
           <Button

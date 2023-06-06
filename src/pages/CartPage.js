@@ -1,4 +1,4 @@
-import {useContext, store,Row,Col,MessageBox,Link,useNavigate,ListGroup,Card,Button,axios,Title} from '../Imports'
+import {useContext, store,Row,Col,MessageBox,Link,useNavigate,ListGroup,Card,Button,axios,Title,ADD_TO_CART,toast,REMOVE_FROM_CART} from '../Imports'
 
 function CartPage() {
   const navigate = useNavigate();
@@ -10,18 +10,18 @@ function CartPage() {
   const updateCartHandler = async (item , quantity) => {
     const {data} = await axios.get(`/api/v1/products/${item._id}`);
     if (data.countInStock < quantity){
-        window.alert('Sorry the Product is Out Of Stock');
+      toast.error('Sorry the Product is Out Of Stock');
         return;
     }
     ctxDispatch({
-        type : 'ADD_TO_CART',
+        type : ADD_TO_CART,
         payload: {...item, quantity},
     });
   }
 
   const removeItemHandler = async (item) => {
     ctxDispatch({
-        type : 'REMOVE_FROM_CART',
+        type : REMOVE_FROM_CART,
         payload: item,
     });
   }

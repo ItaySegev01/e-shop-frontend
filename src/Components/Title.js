@@ -7,7 +7,5 @@ function Title({title}){
         </Helmet>
 
     )
-
 }
-
 export default Title;
