@@ -1,4 +1,4 @@
-import {Link, Card, Button, Rating, axios, useContext, store,ADD_TO_CART} from '../Imports';
+import {Link, Card, Button, Rating, axios, useContext, store,ADD_TO_CART,toast} from '../Imports';
 
 function Product(props) {
   const { product } = props;
@@ -12,7 +12,7 @@ function Product(props) {
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/v1/products/${product._id}`);
     if (data.countInStock < quantity) {
-      window.alert('Sorry the Product is Out Of Stock');
+      toast.error('Sorry the Product is Out Of Stock');
       return;
     }
     ctxDispatch({

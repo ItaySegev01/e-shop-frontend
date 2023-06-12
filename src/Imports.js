@@ -38,7 +38,7 @@ import {
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
-import { getError } from './Utils';
+import { getError,getFilterUrl } from './Utils';
 import { store } from './store';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
@@ -54,12 +54,14 @@ import { LinkContainer } from 'react-router-bootstrap';
 import Alert from 'react-bootstrap/Alert';
 import { Helmet } from 'react-helmet-async';
 import HomePage from './pages/HomePage';
+import SearchPage from './pages/SearchPage';
 import ProductPage from './pages/ProductPage';
 import SignInPage from './pages/SignInPage';
 import CartPage from './pages/CartPage';
 import SignupPage from './pages/SignupPage';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
+import SearchBox from './Components/SearchBox';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { HelmetProvider } from 'react-helmet-async';
@@ -76,6 +78,8 @@ import { submitorderReducer } from './reducers/SubmitOrderPageReducer';
 import ShippingAddressPage from './pages/ShippingAdressPage';
 import OrderPage from './pages/OrderPage';
 import PaymentPage from './pages/PaymentPage';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
 
 export {
   useEffect,
@@ -87,10 +91,14 @@ export {
   Title,
   SignupPage,
   CheckoutSteps,
+  InputGroup,
+  FormControl,
   GET_SUCCESS,
   GET_FAIL,
   GET_REQUEST,
   SAVE_PAYMENT_METHOD,
+  SearchPage,
+  SearchBox,
   useContext,
   ADD_TO_CART,
   REMOVE_FROM_CART,
@@ -104,6 +112,7 @@ export {
   Row,
   Col,
   getError,
+  getFilterUrl,
   store,
   useState,
   useLocation,

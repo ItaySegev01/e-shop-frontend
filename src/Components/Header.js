@@ -11,7 +11,8 @@ import {
   ADD_TO_CART,
   NavDropdown,
   USER_SIGNOUT,
-  toast
+  toast,
+  SearchBox,
 } from '../Imports';
 
 function Header() {
@@ -52,6 +53,7 @@ function Header() {
           <LinkContainer to="/">
             <Navbar.Brand>EShop</Navbar.Brand>
           </LinkContainer>
+          <SearchBox/>
           <Nav className="ms-auto w-50 justify-content-end">
             <Link to="/cart" className="nav-link">
               <i

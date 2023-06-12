@@ -53,7 +53,6 @@ const SubmitOrderPage = () => {
       );
 
       dispatch({ type: CREATE_SUCCEEDED });
-
       ctxDispatch({ type: CLEAR_CART });
       navigate(`/order/${data.order._id}`);
     } catch (err) {

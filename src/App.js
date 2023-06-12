@@ -1,6 +1,6 @@
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
-import {BrowserRouter, Route, Routes,HomePage,ProductPage,Container,CartPage,SignInPage,Footer,Header,ToastContainer,SignupPage,ShippingAddressPage,SubmitOrderPage,OrderPage,PaymentPage} from './Imports';
+import {BrowserRouter, Route, Routes,HomePage,ProductPage,Container,CartPage,SignInPage,Footer,Header,ToastContainer,SignupPage,ShippingAddressPage,SubmitOrderPage,OrderPage,PaymentPage,SearchPage} from './Imports';
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
               <Route path="/shipping" element={<ShippingAddressPage />} />
               <Route path="/placeorder" element={<SubmitOrderPage />} />
               <Route path="/order/:id" element={<OrderPage />} />
+              <Route path="/search" element={<SearchPage />} />
             </Routes>
           </Container>
         </main>
