@@ -83,8 +83,12 @@ main {
 .image-thumbnail {
   height: 70px;
 }
+.cart-container{
+  padding-top: 5rem;
+}
 
 .small-container {
+  padding-top: 30px;
   max-width: 600px;
 }
 

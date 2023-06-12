@@ -1,13 +1,31 @@
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
-import {BrowserRouter, Route, Routes,HomePage,ProductPage,Container,CartPage,SignInPage,Footer,Header,ToastContainer,SignupPage,ShippingAddressPage,SubmitOrderPage,OrderPage,PaymentPage,SearchPage} from './Imports';
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  HomePage,
+  ProductPage,
+  Container,
+  CartPage,
+  SignInPage,
+  Footer,
+  Header,
+  ToastContainer,
+  SignupPage,
+  ShippingAddressPage,
+  SubmitOrderPage,
+  OrderPage,
+  PaymentPage,
+  SearchPage,
+} from './Imports';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="d-flex flex-column side-allpage">
-      <ToastContainer position="bottom-center" limit={1} />
-        <Header/>
+        <ToastContainer position="bottom-center" limit={1} />
+        <Header />
         <main>
           <Container className="mt-3">
             <Routes>

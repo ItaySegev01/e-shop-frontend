@@ -77,13 +77,13 @@ const SubmitOrderPage = () => {
     if (!paymentMethod) {
       navigate('/payment');
     }
-  }, [cart, navigate, paymentMethod]);
+  }, [cart,navigate, paymentMethod]);
 
   return (
     <div>
       <Title title="Orders Summary" />
       <CheckoutSteps step1 step2 step3 step4 />
-      <h1 className="my-3">Orders Summary</h1>
+      <h1 className="my-3 mt-5">Orders Summary</h1>
       <Row>
         <Col md={8}>
           <Card className="mb-3">

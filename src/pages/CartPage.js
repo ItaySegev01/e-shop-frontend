@@ -31,7 +31,7 @@ function CartPage() {
   }
 
   return (
-    <div>
+    <div className='cart-container'>
       <Title title='Shoping Cart'/>
       <Row>
         <Col md={8}>

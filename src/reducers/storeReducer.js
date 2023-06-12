@@ -34,7 +34,7 @@ export const storeReducer = (state, { type, payload }) => {
               localStorage.removeItem('userInfo');
               localStorage.removeItem('shippingAddress');
               localStorage.removeItem('paymentMethod');
-              return { ...state, userInfo: null, cart: { cartItems: [] } };
+              return { ...state, userInfo: null, cart: {...state.cart } };
           }
           case SAVE_SHIPPING_ADDRESS:
             {
