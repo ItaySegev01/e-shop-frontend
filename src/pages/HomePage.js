@@ -24,7 +24,6 @@ function HomePage() {
   return (
     <div className="App">
       <Title title="Eshop" />
-      <h1>Products</h1>
       <div className="products">
         {loading ? (
           <Loading />

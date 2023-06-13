@@ -38,7 +38,7 @@ export const validatePassword = (password) => {
 }
 
 export const validatePostalCode = (postalCode) => {
-  const pattern = /^\d{4}$/; 
+  const pattern = /^\d{7}$/; 
   return pattern.test(postalCode);
 }
 
