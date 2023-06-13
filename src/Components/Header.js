@@ -13,9 +13,14 @@ import {
   USER_SIGNOUT,
   toast,
   SearchBox,
+  useEffect,
+  useNavigate,
+  useState,
 } from '../Imports';
 
 function Header() {
+  const navigate = useNavigate();
+  const [inHomePage, setInHome] = useState(false);
   const { state, dispatch: ctxDispatch } = useContext(store);
   const {
     cart: { cartItems },
@@ -46,14 +51,37 @@ function Header() {
     ctxDispatch({ type: USER_SIGNOUT });
   };
 
+  const handleBackClick = (event) => {
+    event.preventDefault();
+    navigate(-1);
+  };
+
+  useEffect(() => {
+    if (window.location.href !== 'http://localhost:3000/') {
+      setInHome(true);
+    } else {
+      setInHome(false);
+    }
+  }, [navigate]);
+
   return (
     <header className="header">
-      <Navbar bg="dark" variant="dark" fixed='top'>
+      <Navbar bg="dark" variant="dark" fixed="top" className="navbar-custom">
         <Container>
+          {inHomePage ? (
+            <Nav className='md-5 nav-link' onClick={(e) => handleBackClick(e)}>
+              <Nav.Item>
+                <i className="fa fa-arrow-left text-white"></i>
+                <span className="text-white me-2">Go Back</span>
+              </Nav.Item>
+            </Nav>
+          ) : (
+            <></>
+          )}
           <LinkContainer to="/">
             <Navbar.Brand>EShop</Navbar.Brand>
           </LinkContainer>
-          <SearchBox/>
+          <SearchBox />
           <Nav className="ms-auto w-50 justify-content-end">
             <Link to="/cart" className="nav-link">
               <i

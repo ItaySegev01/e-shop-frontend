@@ -1,4 +1,4 @@
-import {React,useEffect, useContext, useState,Link, useLocation, useNavigate,Form,Button,Container,axios,store,toast,getError,Title,USER_SIGNIN } from '../Imports';
+import {React,useEffect, useContext, useState,Link, useLocation, useNavigate,Form,Button,Container,axios,store,toast,getError,Title,USER_SIGNIN,validateEmail,validatePassword } from '../Imports';
 
 export default function SignInPage() {
   const navigate = useNavigate();
@@ -13,6 +13,14 @@ export default function SignInPage() {
   const { userInfo } = state;
   const submitHandler = async (e) => {
     e.preventDefault();
+    if (!validateEmail(email)) {
+      toast.error('Invalid email');
+      return;
+    }
+    if (!validatePassword(password)) {
+      toast.error('Invalid password');
+      return;
+    }
     try {
       const { data } = await axios.post('/api/v1/users/signin', {
         email,

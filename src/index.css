@@ -80,6 +80,10 @@ main {
   transform: scale(1.02);
 }
 
+.productPage{
+  margin-top: 5rem;
+}
+
 .image-thumbnail {
   height: 70px;
 }
@@ -91,6 +95,7 @@ main {
   padding-top: 30px;
   max-width: 600px;
 }
+
 
 .card-body {
   display: flex;
@@ -124,6 +129,7 @@ main {
     visibility: collapse;
   }
 }
+
 
 .card-image {
   width: 100%;

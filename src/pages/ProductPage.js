@@ -40,7 +40,7 @@ function ProductPage() {
   }
 
   return (
-    <div>
+    <div className='productPage'>
       {loading ? (
         <Loading/>
       ) : error ? (

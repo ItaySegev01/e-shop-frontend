@@ -14,6 +14,9 @@ import {
   Form,
   Link,
   Button,
+  validateEmail,
+  validatePassword,
+  validateString
 } from '../Imports';
 
 function SignupPage() {
@@ -32,6 +35,21 @@ function SignupPage() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+
+    if (!validateEmail(email)) {
+      toast.error('Invalid email, must contain @');
+      return;
+    }
+
+    if (!validatePassword(password)) {
+      toast.error("Invalid password, can't contain blank spaces");
+      return;
+    }
+
+    if (!validateString(name)) {
+      toast.error("Invalid name, can't contain blank spaces");
+      return;
+    }
 
     if (password !== confirmPassword) {
       toast.error('Passwords must match!');

@@ -38,7 +38,7 @@ import {
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
-import { getError,getFilterUrl } from './Utils';
+import { getError,getFilterUrl,validateEmail,validatePassword,validatePostalCode,validateString } from './Utils';
 import { store } from './store';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
@@ -91,6 +91,10 @@ export {
   Title,
   SignupPage,
   CheckoutSteps,
+  validateEmail,
+  validatePassword,
+  validatePostalCode,
+  validateString,
   InputGroup,
   FormControl,
   GET_SUCCESS,

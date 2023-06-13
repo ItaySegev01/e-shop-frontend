@@ -9,6 +9,8 @@ import {
   useEffect,
   SAVE_SHIPPING_ADDRESS,
   CheckoutSteps,
+  toast,
+  validatePostalCode,
 } from '../Imports';
 
 const ShippingAddressPage = () => {
@@ -22,7 +24,9 @@ const ShippingAddressPage = () => {
   const [fullName, setFullName] = useState(shippingAddress?.fullName || '');
   const [address, setAddress] = useState(shippingAddress?.address || '');
   const [city, setCity] = useState(shippingAddress?.city || '');
-  const [postalCode, setPostalCode] = useState(shippingAddress?.postalCode || '');
+  const [postalCode, setPostalCode] = useState(
+    shippingAddress?.postalCode || ''
+  );
   const [country, setCountry] = useState(shippingAddress?.country || '');
 
   useEffect(() => {
@@ -33,6 +37,12 @@ const ShippingAddressPage = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    if (!validatePostalCode(postalCode)) {
+      toast.error('Invalid postal code');
+      return;
+    }
+
     ctxDispatch({
       type: SAVE_SHIPPING_ADDRESS,
       payload: {
@@ -59,7 +69,7 @@ const ShippingAddressPage = () => {
   return (
     <div>
       <Title title="Shipping Address" />
-      <CheckoutSteps  step1 step2 />
+      <CheckoutSteps step1 step2 />
       <div className="container small-container">
         <h1 className="my-3">Shipping Address</h1>
         <Form onSubmit={submitHandler}>

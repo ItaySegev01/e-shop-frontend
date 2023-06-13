@@ -24,3 +24,27 @@ export const getFilterUrl = (searchFromURI, filter, skipPathName) => {
   }category=${filterCategory}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
   return link;
 };
+
+export const validateEmail = (email) => {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
+
+export const validatePassword = (password) => {
+  if (!/\s/.test(password)){
+    return true;
+  }
+  return false;
+}
+
+export const validatePostalCode = (postalCode) => {
+  const pattern = /^\d{4}$/; 
+  return pattern.test(postalCode);
+}
+
+export const validateString = (string) => {
+  if (!/\s/.test(string)){
+    return true;
+  }
+  return false;
+}
