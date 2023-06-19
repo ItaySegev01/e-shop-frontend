@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer>
-      <div className="text-center">All right's reserved @2023</div>
+      <div className="text-center">All right's reserved to Itay @2023</div>
     </footer>
   );
 }

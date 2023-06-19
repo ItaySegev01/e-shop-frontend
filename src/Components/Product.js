@@ -35,7 +35,7 @@ function Product(props) {
           alt={product.title}
         ></Card.Img>
       </Link>
-      <Card.Body className="card-body">
+      <Card.Body className="card-body d-flex flex-column  justify-content-end">
         <Link to={`/product/${product.token}`}>
           <Card.Title>{product.title}</Card.Title>
         </Link>

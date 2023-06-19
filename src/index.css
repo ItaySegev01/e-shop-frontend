@@ -16,10 +16,10 @@ code {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 5rem;
+  margin-top: 250px;
 }
 
-.nav-link:hover{
+.nav-link:hover {
   cursor: pointer;
   color: #888888;
 }
@@ -73,12 +73,11 @@ main {
 
 .product-card {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 600px;
   transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
   box-shadow: none;
   transform: scale(1);
+  height: calc(100% - 15px);
+  margin-bottom: 15px;
 }
 
 .product-card:hover {
@@ -86,22 +85,21 @@ main {
   transform: scale(1.02);
 }
 
-.productPage{
-  margin-top: 5rem;
+.productPage {
+  margin-top: 4rem;
 }
 
 .image-thumbnail {
   height: 70px;
 }
-.cart-container{
+.cart-container {
   padding-top: 5rem;
 }
 
 .small-container {
-  padding-top: 30px;
+  top: 800px;
   max-width: 600px;
 }
-
 
 .card-body {
   display: flex;
@@ -136,6 +134,19 @@ main {
   }
 }
 
+.carousel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 55px;
+  z-index: -9999;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+}
 
 .card-image {
   width: 100%;
@@ -167,4 +178,15 @@ main {
   -webkit-line-clamp: 2; /* number of lines to show */
   line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+.serch-page {
+  margin-top: 4rem;
+}
+.small-container {
+  margin-top: 4rem;
+}
+
+.checkout-steps {
+  margin-top: 4rem;
 }

@@ -131,7 +131,7 @@ import {
     }, [category, order, page, price, query, rating]);
   
     return (
-      <div>
+      <div className='serch-page'>
         <Title title="Search Products" />
         <Row>
           <Col md={3}>

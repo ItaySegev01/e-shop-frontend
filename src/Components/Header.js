@@ -16,7 +16,10 @@ import {
   useEffect,
   useNavigate,
   useState,
+  useLocation,
 } from '../Imports';
+
+import GeoLocation from './GeoLocation';
 
 function Header() {
   const navigate = useNavigate();
@@ -26,6 +29,7 @@ function Header() {
     cart: { cartItems },
     userInfo,
   } = state;
+  const location = useLocation();
 
   const handleDragOver = (event) => {
     event.preventDefault();
@@ -57,7 +61,7 @@ function Header() {
   };
 
   useEffect(() => {
-    if (window.location.href !== 'http://localhost:3000/') {
+    if (location.pathname !== '/') {
       setInHome(true);
     } else {
       setInHome(false);
@@ -69,10 +73,11 @@ function Header() {
       <Navbar bg="dark" variant="dark" fixed="top" className="navbar-custom">
         <Container>
           {inHomePage ? (
-            <Nav className='md-5 nav-link' onClick={(e) => handleBackClick(e)}>
+            <Nav className="md-5 nav-link" onClick={(e) => handleBackClick(e)}>
               <Nav.Item>
-                <i className="fa fa-arrow-left text-white"></i>
-                <span className="text-white me-2">Go Back</span>
+                <i className="fa fa-arrow-left text-white align-arrow-right ms-3">
+                  Go Back
+                </i>
               </Nav.Item>
             </Nav>
           ) : (
@@ -81,8 +86,10 @@ function Header() {
           <LinkContainer to="/">
             <Navbar.Brand>EShop</Navbar.Brand>
           </LinkContainer>
-          <SearchBox />
-          <Nav className="ms-auto w-50 justify-content-end">
+          <Nav className="d-flex align-items-center w-50 ms-auto">
+            <SearchBox />
+          </Nav>
+          <Nav className="ms-auto d-flex justify-content-end">
             <Link to="/cart" className="nav-link">
               <i
                 className="fas fa-shopping-cart"
@@ -114,10 +121,6 @@ function Header() {
             <>
               <Link className="nav-link text-white" to="/signin">
                 Sign In
-              </Link>
-              <span className="nav-link text-white ms-1 me-1">or </span>
-              <Link className="nav-link text-white" to="/signup">
-                Sign Up
               </Link>
             </>
           )}

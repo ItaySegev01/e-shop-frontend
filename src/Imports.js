@@ -35,6 +35,10 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
+
+
+import Carousel from 'react-multi-carousel';
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
@@ -111,6 +115,7 @@ export {
   SubmitOrderPage,
   ShippingAddressPage,
   useNavigate,
+  Carousel,
   SAVE_SHIPPING_ADDRESS,
   useParams,  
   Row,
