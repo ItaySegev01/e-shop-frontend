@@ -43,6 +43,10 @@ export default function SignInPage() {
     <Container className="small-container">
       <Title title="Sign In" />
       <h1 className="my-3">Sign In</h1>
+      <h5 className='my-2'>(this is a demo app , you may use: 
+      email: admin@example.com
+      <br/> 
+      password: 12345)</h5>
       <Form onSubmit={(e) => submitHandler(e)}>
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email</Form.Label>

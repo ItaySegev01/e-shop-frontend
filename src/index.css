@@ -16,7 +16,7 @@ code {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 250px;
+  margin-top: 300px;
 }
 
 .nav-link:hover {

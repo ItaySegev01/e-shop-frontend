@@ -74,10 +74,10 @@ const SubmitOrderPage = () => {
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
 
   useEffect(() => {
-    if (!paymentMethod) {
+    if (!paymentMethod || !userInfo) {
       navigate('/payment');
     }
-  }, [cart,navigate, paymentMethod]);
+  }, [cart,navigate, paymentMethod, userInfo]);
 
   return (
     <div>
