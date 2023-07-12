@@ -67,7 +67,6 @@ const OrderPage = () => {
     if (!order || (order._id && orderId !== order._id)) {
       getOrder();
     }
-    //getOrder();
   }, [naviagte, order, orderId, userInfo]);
 
   return loading ? (

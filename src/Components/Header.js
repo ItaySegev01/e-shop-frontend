@@ -19,7 +19,6 @@ import {
   useLocation,
 } from '../Imports';
 
-import GeoLocation from './GeoLocation';
 
 function Header() {
   const navigate = useNavigate();
@@ -74,10 +73,9 @@ function Header() {
         <Container>
           {inHomePage ? (
             <Nav className="md-5 nav-link" onClick={(e) => handleBackClick(e)}>
-              <Nav.Item>
-                <i className="fa fa-arrow-left text-white align-arrow-right ms-3">
-                  Go Back
-                </i>
+              <Nav.Item className='back-btn'>
+                <i className='text-white align-arrow-right ms-5 back-btn'>Go Back</i>
+                <i className="fa fa-arrow-left text-white align-arrow-right ms-4"></i>
               </Nav.Item>
             </Nav>
           ) : (

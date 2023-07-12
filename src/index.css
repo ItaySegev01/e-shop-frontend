@@ -190,3 +190,8 @@ main {
 .checkout-steps {
   margin-top: 4rem;
 }
+
+.back-btn{
+  font-family: 'Roboto', sans-serif;
+  left: -5px;
+}
