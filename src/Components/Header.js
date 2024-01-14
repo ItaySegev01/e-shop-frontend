@@ -69,7 +69,7 @@ function Header() {
 
   return (
     <header className="header">
-      <Navbar bg="dark" variant="dark" fixed="top" className="navbar-custom">
+      <Navbar bg="dark" variant="dark" fixed="top" className="navbar-custom" >
         <Container>
           {inHomePage ? (
             <Nav className="md-5 nav-link" onClick={(e) => handleBackClick(e)}>
@@ -81,7 +81,7 @@ function Header() {
           ) : (
             <></>
           )}
-          <LinkContainer to="/">
+          <LinkContainer to="/" className='d-grid gap-3'>
             <Navbar.Brand>EShop</Navbar.Brand>
           </LinkContainer>
           <Nav className="d-flex align-items-center w-50 ms-auto">

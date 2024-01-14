@@ -191,7 +191,8 @@ main {
   margin-top: 4rem;
 }
 
-.back-btn{
+.back-btn {
   font-family: 'Roboto', sans-serif;
   left: -5px;
+  padding-right: 5rem;
 }
